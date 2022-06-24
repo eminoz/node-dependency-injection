@@ -11,4 +11,5 @@ const UserController = new UserApi(UserSer);
 const router = express.Router();
 router.post("/createuser", UserController.CreateUser);
 router.get("/getuserbyid/:id", UserController.GetUserById);
+router.delete("/deleteuserbyid/:id",UserController.DeleteUser)
 export default router;

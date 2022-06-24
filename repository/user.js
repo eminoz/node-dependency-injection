@@ -12,4 +12,7 @@ export default class UserRepository {
     GetUserById = async ({id}) => {
         return await this.User.find({_id: id}).exec()
     }
+    DeleteUserById = async ({id}) => {
+        return await this.User.deleteOne({_id: id})
+    }
 }

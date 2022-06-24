@@ -13,4 +13,9 @@ export default class UserApi {
         const response = await this.userService.GetUserById({id})
         return res.json({user: response})
     }
+    DeleteUser = async (req, res, next) => {
+        const id = req.params.id
+        const response = await this.userService.DeleteUserWithID({id});
+        return res.json({message: response})
+    }
 }

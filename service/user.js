@@ -19,5 +19,9 @@ export default class UserService {
             name: res.name
         }))
     }
+    DeleteUserWithID = async ({id}) => {
+        const response = await this.userRepo.DeleteUserById({id})
+        return response
+    }
 
 }
