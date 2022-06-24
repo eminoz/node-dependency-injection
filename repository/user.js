@@ -8,4 +8,8 @@ export default class UserRepository {
         const responseUser = await user.save();
         return responseUser;
     }
+
+    GetUserById = async ({id}) => {
+        return await this.User.find({_id: id}).exec()
+    }
 }

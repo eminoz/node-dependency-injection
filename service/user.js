@@ -11,4 +11,13 @@ export default class UserService {
         });
         return responseUSer;
     };
+    GetUserById = async ({id}) => {
+
+        const data = await this.userRepo.GetUserById({id})
+        return data.map(res => ({
+            id: res._id,
+            name: res.name
+        }))
+    }
+
 }
