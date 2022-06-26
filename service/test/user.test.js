@@ -3,8 +3,8 @@ class User {
   CreateUser = ({ name, email, password }) => {
     return { name, email, password };
   };
-  GetUserById = ({ _id }) => {
-    
+  GetUserById = ({ id }) => {
+    return [{ _id: id, name: "emin" }];
   };
 }
 describe("user test", () => {
@@ -19,5 +19,12 @@ describe("user test", () => {
 
     expect(foundUSer.email).toEqual("eminoz@gmail.com");
   });
-  it;
+  it("SERVICE/user.js should return a user array", async () => {
+    const userClass = new User();
+    const resUser = new UserService(userClass).GetUserById({
+      id: "userId",
+    });
+    const foundUSer = await resUser;
+    expect(foundUSer[0].id).toEqual("userId");
+  });
 });
