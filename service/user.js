@@ -1,4 +1,5 @@
-export default class UserService {
+
+module.exports= class UserService {
     constructor(repo) {
         this.userRepo = repo;
     }
@@ -18,7 +19,7 @@ export default class UserService {
             id: res._id,
             name: res.name
         }))
-    }
+    } 
     DeleteUserWithID = async ({id}) => {
         const response = await this.userRepo.DeleteUserById({id})
         return response

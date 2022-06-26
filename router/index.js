@@ -1,8 +1,9 @@
-import UserApi from "../api/user.js";
-import {User} from "../model/user.js";
-import UserRepository from "../repository/user.js";
-import UserService from "../service/user.js";
-import express from "express";
+const User = require("../model/user");
+const UserRepository = require("../repository/user");
+const UserService = require("../service/user");
+
+const express = require("express");
+const UserApi = require("../api/user");
 
 const UserRepo = new UserRepository(User);
 const UserSer = new UserService(UserRepo);
@@ -11,5 +12,5 @@ const UserController = new UserApi(UserSer);
 const router = express.Router();
 router.post("/createuser", UserController.CreateUser);
 router.get("/getuserbyid/:id", UserController.GetUserById);
-router.delete("/deleteuserbyid/:id",UserController.DeleteUser)
-export default router;
+router.delete("/deleteuserbyid/:id", UserController.DeleteUser);
+module.exports = router;

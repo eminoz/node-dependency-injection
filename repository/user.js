@@ -1,4 +1,4 @@
-export default class UserRepository {
+module.exports= class UserRepository {
     constructor(database) {
         this.User = database;
     }
@@ -15,4 +15,5 @@ export default class UserRepository {
     DeleteUserById = async ({id}) => {
         return await this.User.deleteOne({_id: id})
     }
-}
+} 
+ 

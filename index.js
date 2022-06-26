@@ -1,7 +1,7 @@
-import express from "express";
-import { connectDb } from "./pkg/database/database.js";
-import { config } from "./pkg/config/index.js";
-import router from "./router/index.js";
+const express = require('express');
+const connectDb = require('./pkg/database/database');
+// import { config } from "./pkg/config/index.js";
+const router= require('./router/index');
 
 const StartServer = async () => {
   const app = express();
