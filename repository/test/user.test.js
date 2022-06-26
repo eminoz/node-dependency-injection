@@ -14,20 +14,20 @@ describe("user test", () => {
   });
   const user = new UserRepository(User);
   it("should insert a doc into collection", async () => {
-    const resUser = await user.CreateUser({
+    const newUser = {
       name: "emin",
       email: "eminoz@gmail.com",
       password: "123456",
-    });
+    };
+    const resUser = await user.CreateUser(newUser);
     const foundUSer = await resUser;
     const userResponse = {
-      _id: foundUSer._id,
       name: foundUSer.name,
       email: foundUSer.email,
       password: foundUSer.password,
     };
 
-    expect(userResponse.email).toEqual("eminoz@gmail.com");
+    expect(userResponse).toEqual(newUser);
   });
   it("GetUserById is return a user", async () => {
     const newUser = await user.CreateUser({
